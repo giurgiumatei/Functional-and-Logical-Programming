@@ -1,0 +1,8 @@
+count_occurences([],_,0).
+count_occurences([H|T],VALUE,COUNT):-
+    H =:= VALUE,
+    count_occurences(T,VALUE,CNT),
+    COUNT is CNT + 1.
+count_occurences([H|T],VALUE,COUNT):-
+    H =\= VALUE,
+    count_occurences(T,VALUE,COUNT).

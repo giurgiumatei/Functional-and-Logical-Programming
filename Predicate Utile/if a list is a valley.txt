@@ -1,0 +1,10 @@
+
+valley_parse([_],1,N):-
+    N > 0.
+valley_parse([H1,H2|T],_,N):-
+    H1 < H2,
+    valley_parse([H2|T],1,N),!.
+valley_parse([H1,H2|T],0,N):-
+    H1 > H2,
+    N1 is N+1,
+    valley_parse([H2|T],0,N1),!.

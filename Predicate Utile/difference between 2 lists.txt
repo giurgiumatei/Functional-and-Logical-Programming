@@ -1,0 +1,6 @@
+difference([],_,[]).
+difference([H|T],SET2,R):-
+    contains(SET2,H),
+    difference(T,SET2,R),!.
+difference([H|T],SET2,[H|R]):-
+    difference(T,SET2,R).

@@ -1,0 +1,16 @@
+
+sum([],0).
+sum([H|T],R):- sum(T,R1), R is R1 + H.
+
+lenght([],0).
+lenght([_|T],R):- lenght(T,R1), R is R1 + 1.
+
+
+past([],_,[]).
+past([H|T],N,[H|R]):- lenght(H,L), L >= N , sum(H,S),
+    				S mod 3 =:= 0,!, past(T,N,R).
+past([_|T],N,R):- past(T,N,R).
+
+lmao(L,N,R1):-
+    findall(A,subm(L,A),R),
+    past(R,N,R1).

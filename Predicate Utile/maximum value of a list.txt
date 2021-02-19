@@ -1,0 +1,6 @@
+max([],M,M).
+max([H|T],M,R):-
+    H>M,!,
+    max(T,H,R).
+max([_|T],M,R):-
+    max(T,M,R).

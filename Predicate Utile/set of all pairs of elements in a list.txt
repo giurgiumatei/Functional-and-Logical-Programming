@@ -1,0 +1,10 @@
+generate_sets(_,0,[]):-!.
+generate_sets([H|T],K,[H|R]):-
+    K1 is K - 1,
+    generate_sets(T,K1,R).
+generate_sets([_|T],K,R):-
+    generate_sets(T,K,R).
+
+sets([],[]).
+sets(LIST,R):-
+    findall(X,generate_sets(LIST,2,X),R).

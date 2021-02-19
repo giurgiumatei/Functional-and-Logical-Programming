@@ -1,0 +1,78 @@
+subm([],[]).
+subm([_|T], S) :- subm(T, S).
+subm([H|T], [H|S]) :- subm(T, S).
+
+sum([],0).
+sum([H|T],R):- sum(T,R1), R is R1 + H.
+
+lenght([],0).
+lenght([_|T],R):- lenght(T,R1), R is R1 + 1.
+
+
+past([],_,[]).
+past([H|T],N,[H|R]):- lenght(H,L),
+		 L >= N ,
+		 sum(H,S),
+    		S mod 3 =:= 0,!, past(T,N,R).
+past([_|T],N,R):- past(T,N,R).
+
+lmao(L,N,R1):-
+    findall(A,subm(L,A),R),
+    past(R,N,R1).
+
+p(1).
+p(2).
+q(1).
+q(2).
+r(1).
+r(2).
+s:-!,p(X),q(Y),r(Z),write(X,Y,Z),nl.
+
+
+f([],0).
+f([H|T],S):-f(T,S1),aux(H,S,S1).
+
+aux(H,S,S1):-H < S1,!,S is H + S1.
+aux(_,S,S1):- S is S1 + 2.
+
+%f([],-1).
+%f([H|T],S):-H>0,f(T,S1),S1<H,!,S is H.
+%f([_|T],S):-f(T,S1), S is S1.
+
+
+%f([],-1).
+%f([H|T],S):-f(T,S1), aux(S,S1,H).
+
+%aux(S,S1,H):- H>0, S1<H, !, S is H.
+%aux(S,S1,_):- S is S1.write([X,Y,Z]),nl.
+
+% comb(L: list, K:integer, C:list)
+% (i, i, o) - nedeterminist
+comb([H|_], 1, [H]).
+comb([_|T], K, C) :-
+	comb(T, K, C).
+comb([H|T], K, [H|C]) :-
+    K > 1,
+    K1 is K-1,
+    comb(T, K1, C).
+
+% insereaza(E: element, L:List, LRez:list)
+% (i, i, o) - nedeterminist
+insereaza(E, L, [E|L]).
+insereaza(E, [H|T], [H|Rez]) :-
+	insereaza(E, T, Rez).
+
+perm([],[]).
+perm([H|T],P):-
+    	perm(T,L),
+    	insereaza(H,L,P).
+
+aranj(L,K,R1):-
+    comb(L,K,R),
+    perm(R,R1).
+    
+candidat(E,[E|_]).
+candidat(E,[_|T]) :-
+	candidat(E,T).
+
+

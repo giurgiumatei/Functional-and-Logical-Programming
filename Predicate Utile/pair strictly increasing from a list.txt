@@ -1,0 +1,16 @@
+
+pereche(A,[B|_],[A,B]:-
+	A<B.
+pereche(A,[_|T],P):-
+	pereche(A,T,P).
+
+
+
+perechi([H|T],P):-
+	pereche(H,T,P).
+perechi([_|T],P):-
+	perechi(T,P).
+
+
+toatePerechi(L,LRez):-
+	findall(X,perechi(L,X),LRez).

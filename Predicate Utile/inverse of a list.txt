@@ -1,0 +1,11 @@
+
+%adauga elementul E la sfarsitul unei liste
+adaug(E,[],[E]).
+adaug(E,[H|T],[H|Rez]:-
+	adaug(E,T,Rez).
+	
+
+invers([],[]).
+invers([H|T],Rez):-
+	invers(T,L),
+	adaug(H,L,Rez).

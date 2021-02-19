@@ -1,0 +1,15 @@
+elimina_cresc([],[]).
+elimina_cresc([H],[H]).
+elimina_cresc([H1,H2],[]): -
+	H1 < H2.
+elimina_cresc([H1,H2,H3|T],R):-
+	H1 < H2,
+	H2 < H3,
+	elimina_cresc([H2,H3|T],R).
+elimina_cresc([H1,H2,H3|T],R):-
+	H1 < H2,
+	H2 >= H3,
+	elimina_cresc([H3|T],R).
+elimina_cresc([H1,H2|T],[H1|R]):-
+	H1 >= H2,
+	elimina_cresc([H2|T],R).

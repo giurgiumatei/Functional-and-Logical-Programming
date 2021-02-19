@@ -1,0 +1,14 @@
+cmmdc(A,0,A):-!.
+cmmdc(0,B,B):-!.
+cmmdc(A,B,R):-
+    A>=B,
+    A1 is A mod B,
+    cmmdc(A1,B,R),!.
+cmmdc(A,B,R):-
+    A<B,
+    B1 is B mod A,
+    cmmdc(A,B1,R),!.
+
+cmmmc(A,B,R):-
+    cmmdc(A,B,GCD),
+    R is A*B/GCD.

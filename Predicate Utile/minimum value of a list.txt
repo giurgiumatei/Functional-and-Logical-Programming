@@ -1,0 +1,6 @@
+min([MIN],MIN).
+min([H|T],H):-
+    min(T,MIN),
+    H < MIN,!.
+min([_|T],MIN):-
+    min(T,MIN).

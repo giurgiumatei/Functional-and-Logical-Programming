@@ -1,0 +1,18 @@
+suma_list([],0).
+suma_list([H|T],S):-
+	suma_list(T,ST),
+	S is H+ST.
+
+%daca lista poate contine si liste, mai ai urm
+
+suma([],0).
+suma([H|T],S):-number(H),
+	            !,
+                                  suma(T,S1),
+                                  S is H+S1.
+suma([H|T],S):-is_list(H),
+                                  !,
+                                  suma_list(H,S1),
+                                  suma(T,S2),
+                                  S is S1+S2.
+suma([_|T],S):-suma(T,S).

@@ -1,0 +1,18 @@
+
+;se da o lista formata din numere intregi, adauga
+; dupa al 3-lea, dupa al 5-lea, dupa al 9-lea element un element dat e
+
+solve([],_,_,_,[]).
+
+solve([H|T],E,N,N,[E,H|R]):-
+    
+    C1 is N + 2,
+    N1 is 2*N -1,
+    
+    solve(T,E,C1,N1,R),!.
+    
+
+solve([H|T],E,C,N,[H|R]):-
+    C1 is C + 1,
+    solve(T,E,C1,N,R).
+

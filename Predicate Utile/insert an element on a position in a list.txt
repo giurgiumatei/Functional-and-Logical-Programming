@@ -1,0 +1,4 @@
+insert(L,E,0,[E|L]):-!.
+insert([H|T],E,POS,[H|R]):-
+    POS1 is POS - 1,
+    insert(T,E,POS1,R).

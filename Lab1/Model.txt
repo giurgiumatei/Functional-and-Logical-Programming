@@ -1,0 +1,22 @@
+Problem 3
+
+a)
+
+is_in_list(value,l1,l2,...,ln)={False, if list is empty 
+                                                           True, if l1=value
+                                                           is_in_list(value,l2,l3,...,ln),otherwise
+                                                             }
+
+is_set(l1,l2,..,ln)={False,if is_in_list(l1,l2,...,ln) or if list is empty
+                                      True,if list contains one element
+                                      is_set(l2,...,ln), otherwise
+
+b)
+count(value,l1,l2,...,ln)={0, if list is empty
+                                                    1+count(value,l2,...,ln), if value==l1
+                                                    count(value,l2,...,ln),otherwise
+distinct(index,l1,l2,l3,...,ln)={0, if index=n-1or list is empty
+                                                 1+distinct(l2,l3,...,ln), if count(lindex,l1,...,ln)==1
+                                                  distinct(l2,l3,...,ln), otherwise
+
+

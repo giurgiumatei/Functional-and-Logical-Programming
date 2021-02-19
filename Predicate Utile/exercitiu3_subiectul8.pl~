@@ -1,0 +1,11 @@
+
+
+subm([],[]).
+subm([H|T],[H|R]):-subm(T,R).
+subm([_|T],R):-subm(T,R).
+
+
+subm([],[]).
+subm([_|T], S) :- subm(T, S).
+subm([H|T], [H|S]) :- subm(T, S).
+

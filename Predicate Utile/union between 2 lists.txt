@@ -1,0 +1,7 @@
+my_union([],[],[]).
+my_union([H|T],SET2,[H|R]):-
+    remove_occurences(T,H,R1),
+    remove_occurences(SET2,H,R2),
+    my_union(R1,R2,R).
+my_union([],SET2,R):-
+    my_union(SET2,[],R).

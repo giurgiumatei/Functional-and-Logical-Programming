@@ -1,0 +1,3 @@
+addE([],E,[E]).
+addE([H|T],E,[H|R]):-
+    addE(T,E,R).

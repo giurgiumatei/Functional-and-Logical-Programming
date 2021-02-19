@@ -1,0 +1,9 @@
+mypro([],1).
+mypro([H|T],R):-
+	H mod 2 =:=0,
+	mypro(T,RT),
+	R is RT*H.
+mypro([H|T],R):-
+	H mod 2 =\=0,
+	mypro(T,RT),
+	R is RT.

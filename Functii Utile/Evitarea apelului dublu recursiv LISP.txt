@@ -1,0 +1,24 @@
+;;Sa zicem ca ai
+
+(defun g(l)
+	(cond
+		((null l) nil)
+		(t (cons (car (f l)) (cadr (f l))))
+	)
+
+)
+
+;;Pentru a evita apelul dublu recursiv folosesti LAMBDA astfel
+
+(defun g(l)
+	((lambda (v)
+		(cond
+			((null l) nil)
+			(t (cons (car v) (cadr v)))
+		)
+	)
+	(f l)
+	)
+
+
+)

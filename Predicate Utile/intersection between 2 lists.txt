@@ -1,0 +1,10 @@
+member([V|_],V):-!.
+member([_|T],V):-
+    member(T,V).
+
+intersection([],_,[]).
+intersection([H|T],SET,[H|R]):-
+    member(SET,H),
+    intersection(T,SET,R),!.
+intersection([_|T],SET,R):-
+    intersection(T,SET,R).

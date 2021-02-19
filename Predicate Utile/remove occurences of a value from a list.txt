@@ -1,0 +1,8 @@
+
+remove_occurences([],_,[]).
+remove_occurences([H|T],VALUE,[H|R]):-
+    H =\= VALUE,
+    remove_occurences(T,VALUE,R).
+remove_occurences([H|T],VALUE,R):-
+    H =:= VALUE,
+    remove_occurences(T,VALUE,R).

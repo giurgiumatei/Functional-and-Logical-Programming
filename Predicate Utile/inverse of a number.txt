@@ -1,0 +1,7 @@
+inv_numar(0,Ncv,Ncv).
+inv_numar(N,Ncv,Rez):-
+	N > 0,
+	Cifra is N mod 10,
+	NcvNew is Ncv * 10 + Cifra,
+	NN is N div 10
+	inv_numar(NN,NcvNew,Rez).

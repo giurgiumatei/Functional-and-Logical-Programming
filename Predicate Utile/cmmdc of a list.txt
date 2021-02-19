@@ -1,0 +1,5 @@
+
+list_cmmdc([E],E).
+list_cmmdc([H|T],R):-
+	list_cmmdc(T,R1),
+	cmmdc(H,R1,R).

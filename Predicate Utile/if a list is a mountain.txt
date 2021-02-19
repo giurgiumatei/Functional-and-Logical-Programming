@@ -1,0 +1,29 @@
+Is_mountain([H1, H2, H3], 0) :- 
+
+H1 < H2, 
+
+H2 > H3. 
+
+ 
+
+Is_mountain([H1, H2, H3], 1) :- 
+
+H1 > H2, 
+
+H2 > H3. 
+
+ 
+
+Is_mountain([H1, H2 | T], 0) :- 
+
+H1 < H2, 
+
+Is_mountain([H2 | T], 0). 
+
+ 
+
+Is_mountain([H1, H2 | T], _) :- 
+
+H1 > H2, 
+
+Is_mountain([H2 | T], 1). 

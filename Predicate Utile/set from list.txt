@@ -1,0 +1,13 @@
+
+apare([E|_],E).
+apare([_|T],E):-apare(T,E).
+
+rem([],_,[]).
+rem([H|T],H,R):-rem(T,H,R).
+rem([H|T],E,[H|RT]):-H =\= E, rem(T,E,RT).
+
+
+
+make_set([],[]).
+make_set([H|T],R):-apare(T,H),make_set(T,R),!.
+make_set([H|T],[H|R]):-make_set(T,R).

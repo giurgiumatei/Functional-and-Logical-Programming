@@ -1,0 +1,8 @@
+remove(_,[],[]).
+remove(E,[H|T],R):-
+	H =:= E,
+	R = T.
+remove(E,[H|T],R):-
+	H =\=E,
+	remove(E,T,RT),
+	R=[H|RT].

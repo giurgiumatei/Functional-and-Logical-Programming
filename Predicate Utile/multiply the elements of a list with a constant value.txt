@@ -1,0 +1,5 @@
+
+mmul(_,[],[]).
+mmul(K,[H|T],[HR|TR]):-
+	HE is K*H,
+	mmul(K,T,TR).

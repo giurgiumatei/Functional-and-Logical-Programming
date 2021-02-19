@@ -1,0 +1,8 @@
+
+comb([H|_],1,[H]).
+comb([_|T],K,C):-
+	comb(T,K,C).
+comb([H|T],K,[H|C]):-
+	K>1,
+	K1 is K-1,
+	comb(T,K1,C).
